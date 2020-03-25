@@ -25,19 +25,19 @@ While your data is importing into SendBird, begin development of a new version o
 * [Quick Start Guide](https://docs.sendbird.com/ios) 
 * [Sample App](https://github.com/sendbird/SendBird-iOS)
 
-## 3. Deploy app code with SendBird SDK
+### 3. Deploy app code with SendBird SDK
 After your data import is complete, it’s time to release the new app with SendBird SDK. If possible, we recommend force-updating your users to the new app version to quickly move all users to chat running with SendBird. 
 
 If it is not possible to immediately force-update users, another approach is to include the SendBird SDK and the Pusher SDK into your application at the same time. This approach is more complex as it requires your application to handle matching chat users, channels and messages in Pusher and SendBird at the same time. We recommend [getting in touch with us](support@sendbird.com) if this is your must-have use case so we can discuss and provide assistance in moving forward.
 
-# Data Mappings
-## Users 
+## Data Mappings
+### Users 
 Users can chat with each other by participating in open channels and joining group channels and are identified with their own user id. [Learn more about users here](https://docs.sendbird.com/platform/user).
 * **User id**: A string with a length of 80 and can be the same as old id that was used in the legacy system. This will be the unique id that can be used to identify the user and we don’t allow duplicate id in an app. 
 * **Metadata**: If you want to add custom information such as organization id for the B2B case, you can use this resource. You can filter users based on this value to limit their access to a certain group of users. Find more information on [user metadata here](https://docs.sendbird.com/platform/user_metadata).
 
 
-## Messages 
+### Messages 
 SendBird supports text and file messages for migration and maps them to SendBird MESG and FILE message types.
 [Learn more about message types here](https://docs.sendbird.com/platform/messages).
 * **Custom Type**: You can use this field to subclassify messages. This field can be used for querying messages.
@@ -47,7 +47,7 @@ SendBird supports text and file messages for migration and maps them to SendBird
 * **File message**: The file message can include the data of the file to upload to the SendBird server in raw binary format or the URL to the file.
 
 
-## Channels 
+### Channels 
 SendBird supports [Group Channels](https://docs.sendbird.com/platform/group_channel#3_create_a_channel) designed for chats with user membership. Group Channels can include 1-1 chats or 1-N chats with multiple members, and Group Channels can be public or private. 
 
 SendBird also supports [Open Channels](https://docs.sendbird.com/platform/open_channel) intended for large, public chats that users participate in during their active chat session. [Learn more about channel types here](https://docs.sendbird.com/platform/channel_type#2_channel_types).
