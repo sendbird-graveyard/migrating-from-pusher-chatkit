@@ -13,17 +13,17 @@ With SendBird, we make it easy to quickly perform a bulk migration of your user,
 While your data is importing into SendBird, begin development of a new version of your application running with the SendBird SDK. Find our getting started guides and sample apps below.
 
 **JavaScript**
-    [Quick Start Guide](https://docs.sendbird.com/javascript)
-    [Sample Apps for Web and React Native](https://github.com/sendbird/sendbird-javascript)
-    [See the Sample Apps running in action here!](http://sample.sendbird.com)
+* [Quick Start Guide](https://docs.sendbird.com/javascript) 
+* [Sample Apps for Web and React Native](https://github.com/sendbird/sendbird-javascript) 
+* [See the Sample Apps running in action here!](http://sample.sendbird.com)
 
 **Android**
-    [Quick Start Guide](https://docs.sendbird.com/android)
-    [Sample App](https://github.com/sendbird/sendbird-android)
+* [Quick Start Guide](https://docs.sendbird.com/android) 
+* [Sample App](https://github.com/sendbird/sendbird-android)
 
 **iOS**
-    [Quick Start Guide](https://docs.sendbird.com/ios)
-    [Sample App](https://github.com/sendbird/SendBird-iOS)
+* [Quick Start Guide](https://docs.sendbird.com/ios) 
+* [Sample App](https://github.com/sendbird/SendBird-iOS)
 
 ## 3. Deploy app code with SendBird SDK
 After your data import is complete, it’s time to release the new app with SendBird SDK. If possible, we recommend force-updating your users to the new app version to quickly move all users to chat running with SendBird. 
@@ -33,7 +33,7 @@ If it is not possible to immediately force-update users, another approach is to 
 # Data Mappings
 ## Users 
 Users can chat with each other by participating in open channels and joining group channels and are identified with their own user id. [Learn more about users here](https://docs.sendbird.com/platform/user).
-* **User id**: a string with a length of 80 and can be the same as old id that was used in the legacy system. This will be the unique id that can be used to identify the user and we don’t allow duplicate id in an app. 
+* **User id**: A string with a length of 80 and can be the same as old id that was used in the legacy system. This will be the unique id that can be used to identify the user and we don’t allow duplicate id in an app. 
 * **Metadata**: If you want to add custom information such as organization id for the B2B case, you can use this resource. You can filter users based on this value to limit their access to a certain group of users. Find more information on [user metadata here](https://docs.sendbird.com/platform/user_metadata).
 
 
@@ -48,7 +48,9 @@ SendBird supports text and file messages for migration and maps them to SendBird
 
 
 ## Channels 
-SendBird supports [Group Channels](https://docs.sendbird.com/platform/group_channel#3_create_a_channel) designed for chats with user membership. Group Channels can include 1-1 chats or 1-N chats with multiple members, and Group Channels can be public or private. SendBird also supports [Open Channels](https://docs.sendbird.com/platform/open_channel) intended for large, public chats that users participate in during their active chat session. [Learn more about channel types here](https://docs.sendbird.com/platform/channel_type#2_channel_types).
+SendBird supports [Group Channels](https://docs.sendbird.com/platform/group_channel#3_create_a_channel) designed for chats with user membership. Group Channels can include 1-1 chats or 1-N chats with multiple members, and Group Channels can be public or private. 
+
+SendBird also supports [Open Channels](https://docs.sendbird.com/platform/open_channel) intended for large, public chats that users participate in during their active chat session. [Learn more about channel types here](https://docs.sendbird.com/platform/channel_type#2_channel_types).
 During migration, when the channel is not found, SendBird creates a channel first and then starts adding messages. 
 * **Channel URL**: If you pass "channel_url" as the legacy system's channel identifier, then you don't have to save mapping info between legacy channels and SendBird channels. The channel_url is a unique identifier in your app so a duplicate channel URL will not be allowed. 
 * **Data**: Reserved for adding custom data information used for clients. The data field stores string type data and customers can use JSON or XML to serialize data into the string. You can also add origin information to mark that it was migrated. 
