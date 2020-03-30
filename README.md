@@ -28,7 +28,7 @@ While your data is importing into SendBird, begin development of a new version o
 ### 3. Deploy app code with SendBird SDK
 After your data import is complete, it’s time to release the new app with SendBird SDK. If possible, we recommend force-updating your users to the new app version to quickly move all users to chat running with SendBird. 
 
-If it is not possible to immediately force-update users, another approach is to include the SendBird SDK and the Pusher Chatkit SDK into your application at the same time. This approach is more complex as it requires your application to handle matching chat users, channels and messages in Pusher Chatkit and SendBird at the same time. We recommend [getting in touch with us](support@sendbird.com) if this is your must-have use case so we can discuss and provide assistance in moving forward.
+If it is not possible to immediately force-update users in your application, we recommend [getting in touch with us](support@sendbird.com) if this is your must-have use case so we can discuss and provide assistance in moving forward.
 
 ## Data Mappings
 ### Users 
