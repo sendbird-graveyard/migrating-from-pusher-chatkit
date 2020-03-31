@@ -1,0 +1,121 @@
+{
+    "$id": "https://pusher.com/schema/chatkit/message.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "A Chatkit message",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "number",
+        "description": "A unique id for the message"
+      },
+      "sender_id": {
+        "type": "string",
+        "description": "The ID of the user who sent the message"
+      },
+      "room_id": {
+        "type": "string",
+        "description": "The ID of the room that the message belongs to"
+      },
+      "created_at": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Timestamp of the entity creation"
+      },
+      "updated_at": {
+        "type": "string",
+        "format": "date-time",
+        "description": "The last time the entity was updated"
+      },
+      "parts": {
+        "type": "array",
+        "description": "The parts of the message",
+        "items": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "part_type": {
+                  "const": "inline",
+                  "description": "The type of the part, one of \"inline\", \"url\", or \"attachment\""
+                },
+                "payload": {
+                  "type": "object",
+                  "description": "Payload of an inline part",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "descripton": "The MIME type of the content of this part"
+                    },
+                    "content": {
+                      "type": "string",
+                      "descripton": "The content of this part"
+                    }
+                  },
+                  "required": ["type", "content"]
+                }
+              },
+              "required": ["part_type", "payload"]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "part_type": {
+                  "const": "url",
+                  "description": "The type of the part, one of \"inline\", \"url\", or \"attachment\""
+                },
+                "payload": {
+                  "type": "object",
+                  "description": "Payload of a URL part",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "descripton": "The MIME type of the resource that the URL points to"
+                    },
+                    "url": {
+                      "type": "string",
+                      "descripton": "A URL"
+                    }
+                  },
+                  "required": ["type", "url"]
+                }
+              },
+              "required": ["part_type", "payload"]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "part_type": {
+                  "const": "attachment",
+                  "description": "The type of the part, one of \"inline\", \"url\", or \"attachment\""
+                },
+                "payload": {
+                  "type": "object",
+                  "description": "Payload of an attachment part",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "descripton": "The MIME type of the attachment"
+                    },
+                    "name": {
+                      "type": "string",
+                      "descripton": "The name of the attached file"
+                    },
+                    "size": {
+                      "type": "number",
+                      "description": "The size of the attached file in bytes"
+                    },
+                    "custom_data": {
+                      "description": "Arbitrary custom data associated with the file at upload"
+                    }
+                  },
+                  "required": ["type", "name", "size", "download_url"]
+                }
+              },
+              "required": ["part_type", "payload"]
+            }
+          ]
+        }
+      }
+    },
+    "required": ["id", "sender_id", "room_id", "created_at", "updated_at", "parts"]
+  }

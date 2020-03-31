@@ -1,0 +1,36 @@
+
+{
+    "$id": "https://pusher.com/schema/chatkit/user.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "A Chatkit user",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "A unique id for the user"
+      },
+      "name": {
+        "type": "string",
+        "description": "Room name / title"
+      },
+      "avatar_url": {
+        "type": "string",
+        "description": "A link to the user’s photo/image"
+      },
+      "custom_data": {
+        "type": "object",
+        "description": "Custom data associated with the entity"
+      },
+      "created_at": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Timestamp of the entity creation"
+      },
+      "updated_at": {
+        "type": "string",
+        "format": "date-time",
+        "description": "The last time the entity was updated"
+      }
+    },
+    "required": ["id", "name", "created_at", "updated_at"]
+}

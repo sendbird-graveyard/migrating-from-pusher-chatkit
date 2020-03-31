@@ -1,0 +1,69 @@
+[
+  {
+    "id": 42,
+    "sender_id": "alice",
+    "room_id": "alice_x_bob",
+    "created_at": "2020-03-25T12:52:59Z",
+    "updated_at": "2020-03-25T12:52:59Z",
+    "parts": [
+      {
+        "part_type": "inline",
+        "payload": {
+          "type": "text/plain",
+          "content": "Hello Bob!"
+        }
+      },
+      {
+        "part_type": "url",
+        "payload": {
+          "type": "image/png",
+          "url": "https://example.com/hello_world.png"
+        }
+      },
+      {
+        "part_type": "attachment",
+        "payload": {
+          "type": "video/mp4",
+          "name": "hello.mp4",
+          "size": 42,
+          "download_url": "https://example.com/hello.mp4",
+          "custom_data": {
+            "foo": "bar"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "sender_id": "bob",
+    "room_id": "bob_x_carol",
+    "created_at": "2020-03-25T12:52:59Z",
+    "updated_at": "2020-03-25T12:52:59Z",
+    "parts": [
+      {
+        "part_type": "inline",
+        "payload": {
+          "type": "text/plain",
+          "content": "Hello Carol!"
+        }
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "sender_id": "carol",
+    "room_id": "general",
+    "created_at": "2020-03-25T12:52:59Z",
+    "updated_at": "2020-03-25T12:52:59Z",
+    "parts": [
+      {
+        "part_type": "inline",
+        "payload": {
+          "type": "text/plain",
+          "content": "Hello Everyone!"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,56 @@
+{
+    "$id": "https://pusher.com/schema/chatkit/room.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "A Chatkit chat room",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "A unique id for the room"
+      },
+      "created_by_id": {
+        "type": "string",
+        "description": "User id that created the room"
+      },
+      "name": {
+        "type": "string",
+        "description": "Room name / title"
+      },
+      "member_ids": {
+        "type": "array",
+        "description": "List of IDs of users that are members of this room",
+        "items": {
+            "type": "string",
+            "description": "ID of a user who is a member of this room"
+        }
+      },
+      "push_notification_title_override": {
+        "type": "string",
+        "description": "Title to be used for push notifications"
+      },
+      "private": {
+        "type": "boolean",
+        "description": "Indicates if the room is private or public"
+      },
+      "custom_data": {
+        "type": "object",
+        "description": "Custom data associated with the entity"
+      },
+      "last_message_at": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Timestamp of the last message in the room, if there is one"
+      },
+      "created_at": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Timestamp of the entity creation"
+      },
+      "updated_at": {
+        "type": "string",
+        "format": "date-time",
+        "description": "The last time the entity was updated"
+      }
+    },
+    "required": ["id", "created_by_id", "name", "private", "created_at", "updated_at"]
+  }
