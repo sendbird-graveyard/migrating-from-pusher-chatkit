@@ -1,0 +1,25 @@
+[
+  {
+    "user_id": "user_001", // string
+    "access_token": true, // boolean
+    "nickname": "nickname", // string (optional)
+    "profile_url": "https://.../user_001.png", // string (optional)
+    "profile_file": "s3://location/file_name.ext", // string (optional)
+    "metadata": {
+      // up to 5 itmes (optional)
+      "key1": "value1", // string key/value
+      "key2": "value2",
+      "key3": "value3"
+    }
+  },
+  {
+    "user_id": "user_002",
+    "access_token": true,
+    "nickname": "nickname",
+    "profile_url": "https://.../user_002.png",
+    "metadata": {
+      "key1": "value1",
+      "key2": "value2"
+    }
+  }
+]

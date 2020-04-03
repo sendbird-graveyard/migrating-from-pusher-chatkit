@@ -1,0 +1,48 @@
+[
+  {
+    "channel": {
+      "channel_url": "channel_25_48a3a", // Only alphanumeric characters and underscores are allowed.
+      "is_distinct": true, // optional, default: true
+      "is_public": false, // optional, default: false
+      "name": "GroupChannel", // optional, default: empty string
+      "custom_type": "", // optional, default: empty string
+      "data": "", // optional, default: empty string
+      "created_at": 1542348978, // optional, default: 10 digit unix timestamp
+      "cover_url": "https://../pic.png", // optional, default: empty string
+      "members": [
+        // Messages from users that are not listed here are skipped
+        {
+          "user_id": "user_id_001",
+          "last_read_ts": 1322398299992, // optional
+          "is_hidden": false // optional
+        },
+        {
+          "user_id": "user_id_002",
+          "last_read_ts": 1322398299992, // optional
+          "is_hidden": false // optional
+        }
+      ]
+    },
+    "messages": [
+      {
+        "user_id": "user_id_001",
+        "type": "MESG", // optional, default: "MESG"
+        "message": "message text", // optional, default: empty string
+        "custom_type": "", // optional, default: empty string
+        "data": "", // optional, default: empty string
+        "dedup_id": "123456", // required, to prevent duplicate messages.
+        "ts": 1322398299992 // 13 digit timestamp
+      },
+      {
+        "user_id": "user_id_002",
+        "type": "FILE",
+        "url": "https://yourfile.com/yourimage.jpg",
+        "file_name": "yourimage.jpg", // optional
+        "file_size": 1234, // optional
+        "custom_type": "", // optional
+        "dedup_id": "123456", // required, to prevent duplicate messages.
+        "ts": 1322398299992 // 13 digit timestamp
+      }
+    ]
+  }
+]
