@@ -11,6 +11,54 @@ With SendBird, we make it easy to quickly perform a bulk migration of your user,
   We recommend creating two applications: one test/development application and one production application. SendBird can perform a dry run of your migration data into your test/development application prior to migration into your production application so you can verify the data import. When choosing a server region for your applications, select the region that is the closest to your end-users.
 - Share your data import with SendBird. To get started, contact us at support@sendbird.com
 
+### 2. Convert Pusher to SendBird
+
+You can refer to [Pusher data format](https://github.com/sendbird/migrating-from-pusher-chatkit/example-chatkit-data-export) and [SendBird data format](https://github.com/sendbird/example-sendbird-data-json) then convert Pusher to SendBird. After converting it, you can contact us at support@sendbird.com then we will give you SFTP account info, validate your data and migrate it for you.
+
+We will soon upload the sample conversion script here for Pusher to SendBird.
+
+#### User (users.json)
+
+- Maximum of 10,000 users per file, up to 10 MB per file
+- Required: Please confirm if you would like users to be issued an access_token or not with the SendBird team before your user migration
+- User reference information  
+  https://pusher.com/docs/chatkit/reference/latest#users (Pusher)  
+  https://docs.sendbird.com/platform/user (SendBird)
+- Conversion grid
+  |PUSHER|SENDBIRD|note|
+  |---|---|---|
+  |id|user_id||
+  |name|nickname||
+  |avatar_url|profile_url||
+  |-|profile_file|if you have avatar files, you can name it using UUID|
+  |metadata|custom_data||
+
+#### Message (messages.json)
+
+- Maximum of 1,000 channels per file, up to 10 MB per file
+- Can be used to populate channel information, even if the channel does not have any messages
+- Message reference information  
+  https://pusher.com/docs/chatkit/reference/latest#rooms  
+  https://pusher.com/docs/chatkit/reference/latest#messages (Pusher)  
+  https://docs.sendbird.com/platform/messages (SendBird)
+- Conversion grid
+  |PUSHER||SENDBIRD|note|
+  |---|---|---|---|
+  |rooms.json|id|channel_url||
+  ||name|name||
+  ||created_by_id|-||
+  ||member_ids|members||
+  ||push_notification_title_override|-||
+  ||private|is_public||
+  ||custom_data|data (or custom_type)||
+  ||created_at|created_at||
+  ||-|cover_url||
+  |messages.json|id|dedup_id||
+  ||sender_id|user_id||
+  ||created_at (or updated_at)|ts||
+  ||parts|-|'inline' type (only) = MESG type|
+  ||||'inline, url, and attachment' type = FILE type|
+
 ### 2. Prepare your app with SendBird SDK
 
 While your data is importing into SendBird, begin development of a new version of your application running with the SendBird SDK. Find our getting started guides and sample apps below.
