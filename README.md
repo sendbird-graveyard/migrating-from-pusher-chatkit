@@ -1,6 +1,6 @@
 # Migrating to SendBird from Pusher Chatkit
 
-With SendBird, we make it easy to quickly perform a bulk migration of your user, channel and message chat data from Pusher’s Chatkit. Pusher is retiring their Chatkit product on April 23, 2020, but the SendBird team is ready to help you to migrate quickly! Tell us more about your chat migration at support@sendbird.com
+With SendBird, we make it easy to quickly perform a bulk migration of your user, channel and message chat data from Pusher’s Chatkit. Pusher is retiring their Chatkit product on April 23, 2020, but the SendBird team is ready to help you to migrate quickly! Tell us more about your chat migration [by filling out this form here](https://get.sendbird.com/pusher-migration.html)!
 
 ## Migration Steps
 
@@ -9,7 +9,7 @@ With SendBird, we make it easy to quickly perform a bulk migration of your user,
 - Export your data from Pusher. This data should consist of users, channels and messages.
 - [Sign up for SendBird](https://dashboard.sendbird.com/auth/signup) and create your SendBird applications.
   We recommend creating two applications: one test/development application and one production application. SendBird can perform a dry run of your migration data into your test/development application prior to migration into your production application so you can verify the data import. When choosing a server region for your applications, select the region that is the closest to your end-users.
-- Share your data import with SendBird. To get started, contact us at support@sendbird.com
+- Share your data import with SendBird. To get started, [fill out this form here](https://get.sendbird.com/pusher-migration.html).
 
 ### 2. Convert Pusher to SendBird
 
