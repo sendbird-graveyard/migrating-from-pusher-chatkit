@@ -2,6 +2,9 @@
 
 With SendBird, we make it easy to quickly perform a bulk migration of your user, channel and message chat data from Pusher’s Chatkit. Pusher is retiring their Chatkit product on April 23, 2020, but the SendBird team is ready to help you to migrate quickly! Tell us more about your chat migration [by filling out this form here](https://get.sendbird.com/pusher-migration.html)!
 
+Develop quickly with SendBird's UIKit, our development kit with an user interface that enables an easy and fast integration of standard chat features into new or existing client apps. From the overall theme to individual styles such as colors and fonts, components can be fully customized to create an in-app chat experience unique to your brand identity.
+Build in minutes with the SendBird UIKit for [iOS](https://docs.sendbird.com/ios/ui_kit_getting_started), [Android](https://docs.sendbird.com/android/ui_kit_getting_started), or [JavaScript](https://docs.sendbird.com/javascript/ui_kit_getting_started).
+
 ## Migration Steps
 
 ### 1. Export your data from Pusher
@@ -61,21 +64,22 @@ We will soon upload the sample conversion script here for Pusher to SendBird.
 
 ### 2. Prepare your app with SendBird SDK
 
-While your data is importing into SendBird, begin development of a new version of your application running with the SendBird SDK. Find our getting started guides and sample apps below.
+While your data is importing into SendBird, begin development of a new version of your application running with the SendBird SDK. Find our getting started guides and sample apps below. Use our UI Kit to develop your app in minutes!
 
 **JavaScript**
 
+- [UIKit for React](https://docs.sendbird.com/javascript/ui_kit_getting_started)
 - [Quick Start Guide](https://docs.sendbird.com/javascript)
 - [Sample Apps for Web and React Native](https://github.com/sendbird/sendbird-javascript)
 - [See the Sample Apps running in action here!](http://sample.sendbird.com)
 
 **Android**
-
+- [UIKit for Android](https://docs.sendbird.com/android/ui_kit_getting_started#2_uikit_for_android)
 - [Quick Start Guide](https://docs.sendbird.com/android)
 - [Sample App](https://github.com/sendbird/sendbird-android)
 
 **iOS**
-
+- [UIKit for iOS](https://docs.sendbird.com/ios/ui_kit_getting_started#2_uikit_for_ios)
 - [Quick Start Guide](https://docs.sendbird.com/ios)
 - [Sample App](https://github.com/sendbird/SendBird-iOS)
 
