@@ -62,7 +62,7 @@ We will soon upload the sample conversion script here for Pusher to SendBird.
   ||parts|-|'inline' type (only) = MESG type|
   ||||'inline, url, and attachment' type = FILE type|
 
-### 2. Prepare your app with SendBird SDK
+### 3. Prepare your app with SendBird SDK
 
 While your data is importing into SendBird, begin development of a new version of your application running with the SendBird SDK. Find our getting started guides and sample apps below. Use our UI Kit to develop your app in minutes!
 
@@ -83,7 +83,7 @@ While your data is importing into SendBird, begin development of a new version o
 - [Quick Start Guide](https://docs.sendbird.com/ios)
 - [Sample App](https://github.com/sendbird/SendBird-iOS)
 
-### 3. Deploy app code with SendBird SDK
+### 4. Deploy app code with SendBird SDK
 
 After your data import is complete, it’s time to release the new app with SendBird SDK. If possible, we recommend force-updating your users to the new app version to quickly move all users to chat running with SendBird.
 
