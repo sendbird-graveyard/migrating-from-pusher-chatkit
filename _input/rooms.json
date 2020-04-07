@@ -1,0 +1,36 @@
+[
+  {
+    "id": "alice_x_bob",
+    "created_by_id": "alice",
+    "name": "Alice & Bob",
+    "member_ids": ["alice", "bob"],
+    "push_notification_title_override": "Acme Inc. Mobile",
+    "private": true,
+    "custom_data": {
+      "foo": "bar"
+    },
+    "last_message_at": "2020-03-25T11:52:59Z",
+    "created_at": "2020-03-25T10:52:59Z",
+    "updated_at": "2020-03-25T10:52:59Z"
+  },
+  {
+    "id": "bob_x_carol",
+    "created_by_id": "carol",
+    "name": "Bob & Carol",
+    "member_ids": ["bob", "carol"],
+    "private": true,
+    "last_message_at": "2020-03-25T11:52:59Z",
+    "created_at": "2020-03-25T10:52:59Z",
+    "updated_at": "2020-03-25T10:52:59Z"
+  },
+  {
+    "id": "general",
+    "created_by_id": "alice",
+    "name": "General",
+    "member_ids": ["alice", "bob", "carol"],
+    "private": false,
+    "last_message_at": "2020-03-25T11:52:59Z",
+    "created_at": "2020-03-25T10:52:59Z",
+    "updated_at": "2020-03-25T10:52:59Z"
+  }
+]

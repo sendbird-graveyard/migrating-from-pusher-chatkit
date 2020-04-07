@@ -16,9 +16,20 @@ Build in minutes with the SendBird UIKit for [iOS](https://docs.sendbird.com/ios
 
 ### 2. Convert Pusher to SendBird
 
-You can refer to [Pusher data format](https://github.com/sendbird/migrating-from-pusher-chatkit/example-chatkit-data-export) and [SendBird data format](https://github.com/sendbird/example-sendbird-data-json) then convert Pusher to SendBird. After converting it, you can contact us at support@sendbird.com then we will give you SFTP account info, validate your data and migrate it for you.
+You can refer to [Pusher data format](https://github.com/sendbird/migrating-from-pusher-chatkit/example-chatkit-data-export) and [SendBird data format](https://github.com/sendbird/example-sendbird-data-json) then convert Pusher to SendBird. After converting it, you can contact us at support@sendbird.com then we will give you SFTP account or AWS S3 info, validate your data and migrate it for you.
 
-We will soon upload the sample conversion script here for Pusher to SendBird.
+```bash
+# (need Python version 3.x)
+$ git clone https://github.com/sendbird/migrating-from-pusher-chatkit
+$ pip install -r requirements.txt
+$ python pusher_to_sendbird.py
+```
+
+- Test the conversion script with the sample pusher files. (`_input` directory)
+- See `_output` directory. Compare `_input` and `_output` files.
+- Remove all `_input` files and move the actual exported pusher files to `_input` directory.
+- Run `pusher_to_sendbird.py`, compare `_input` and `_output` files, and customize the script if needed.
+- If you have files on pusher, you have to download them using the key and change the file name to UUID, then add some code to `pusher_to_sendbird.py`. (For files, you can contact us. We will help you)
 
 #### User (users.json)
 
@@ -53,7 +64,7 @@ We will soon upload the sample conversion script here for Pusher to SendBird.
   ||member_ids|members||
   ||push_notification_title_override|-||
   ||private|is_public||
-  ||custom_data|data (or custom_type)||
+  ||custom_data|data (or custom_type)|If you want to filter channels by custom_type, you can use custom_type|
   ||created_at|created_at||
   ||-|cover_url||
   |messages.json|id|dedup_id||
@@ -74,11 +85,13 @@ While your data is importing into SendBird, begin development of a new version o
 - [See the Sample Apps running in action here!](http://sample.sendbird.com)
 
 **Android**
+
 - [UIKit for Android](https://docs.sendbird.com/android/ui_kit_getting_started#2_uikit_for_android)
 - [Quick Start Guide](https://docs.sendbird.com/android)
 - [Sample App](https://github.com/sendbird/sendbird-android)
 
 **iOS**
+
 - [UIKit for iOS](https://docs.sendbird.com/ios/ui_kit_getting_started#2_uikit_for_ios)
 - [Quick Start Guide](https://docs.sendbird.com/ios)
 - [Sample App](https://github.com/sendbird/SendBird-iOS)
