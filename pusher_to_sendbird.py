@@ -38,6 +38,7 @@ def user_pusher_to_sendbird():
     users = []
     with open(os.path.join(INPUT_PUSHER_PATH, PUSHER_USER_FILENAME), 'rb') as infile:
         pushers = ijson.items(infile, 'item')
+        path = os.path.join(OUTPUT_SENDBIRD_PATH, SENDBIRD_USER_FILENAME)
         for i, pusher in enumerate(pushers, 1):
             sendbird = init_user()
             try:
@@ -56,10 +57,10 @@ def user_pusher_to_sendbird():
             # No pusher['created_at'] and pusher['updated_at']
             users.append(sendbird)
             if (i % USERS_PER_FILE == 0):
-                with open('{0}{1}.json'.format(os.path.join(OUTPUT_SENDBIRD_PATH, SENDBIRD_USER_FILENAME), i//USERS_PER_FILE), 'w') as outfile:
+                with open('{0}{1}.json'.format(path, i//USERS_PER_FILE), 'w') as outfile:
                     json.dump(users, outfile)
                     users = []
-        with open('{0}{1}.json'.format(os.path.join(OUTPUT_SENDBIRD_PATH, SENDBIRD_USER_FILENAME), (i//USERS_PER_FILE)+1), 'w') as outfile:
+        with open('{0}{1}.json'.format(path, (i//USERS_PER_FILE)+1), 'w') as outfile:
             json.dump(users, outfile)
     return True
 
@@ -155,12 +156,13 @@ def message_pusher_to_sendbird():
                 return False
     pre = 0
     channels = list(channels.values())
+    path = os.path.join(OUTPUT_SENDBIRD_PATH, SENDBIRD_MESSAGE_FILENAME)
     for i in range(1, len(channels)):
         if (i % CHANNELS_PER_FILE == 0):
-            with open('{0}{1}.json'.format(os.path.join(OUTPUT_SENDBIRD_PATH, SENDBIRD_MESSAGE_FILENAME), i//CHANNELS_PER_FILE), 'w') as outfile:
+            with open('{0}{1}.json'.format(path, i//CHANNELS_PER_FILE), 'w') as outfile:
                 json.dump(channels[pre:i], outfile)
                 pre = i
-    with open('{0}{1}.json'.format(os.path.join(OUTPUT_SENDBIRD_PATH, SENDBIRD_MESSAGE_FILENAME), (i//CHANNELS_PER_FILE)+1), 'w') as outfile:
+    with open('{0}{1}.json'.format(path, (i//CHANNELS_PER_FILE)+1), 'w') as outfile:
         json.dump(channels[pre:], outfile)
 
     return True

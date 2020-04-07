@@ -1,0 +1,1 @@
+[{"user_id": "alice", "nickname": "Alice", "profile_url": "https://example.com/alice.png", "profile_file": "", "metadata": {"foo": "bar"}}, {"user_id": "bob", "nickname": "Bob", "profile_url": "", "profile_file": "", "metadata": {}}, {"user_id": "carol", "nickname": "Carol", "profile_url": "", "profile_file": "", "metadata": {}}]
