@@ -110,23 +110,28 @@ def message_pusher_to_sendbird():
         pushers = ijson.items(infileroom, 'item')
         for pusher in pushers:
             sendbird = init_channel()
-            sendbird['channel']['channel_url'] = pusher['id']
-            sendbird['channel']['name'] = pusher['name']
-            for member_id in pusher['member_ids']:
-                sendbird['channel']['members'].append({'user_id': member_id})
-            sendbird['channel']['is_public'] = not pusher['private']
-            if 'custom_data' in pusher:
-                sendbird['channel']['data'] = pusher['custom_data']
-            sendbird['channel']['created_at'] = int(
-                parse(pusher['created_at']).timestamp())
+            try:
+                sendbird['channel']['channel_url'] = pusher['id']
+                sendbird['channel']['name'] = pusher['name']
+                for member_id in pusher['member_ids']:
+                    sendbird['channel']['members'].append(
+                        {'user_id': member_id})
+                sendbird['channel']['is_public'] = not pusher['private']
+                if 'custom_data' in pusher:
+                    sendbird['channel']['data'] = pusher['custom_data']
+                sendbird['channel']['created_at'] = int(
+                    parse(pusher['created_at']).timestamp())
 
-            channels[pusher['id']] = sendbird
+                channels[pusher['id']] = sendbird
+            except KeyError as ke:
+                print('{0}\n{1}'.format(pusher, ke))
+                return False
 
     with open(os.path.join(INPUT_PUSHER_PATH, PUSHER_MESSAGE_FILENAME), 'rb') as infilemsg:
         pushers = ijson.items(infilemsg, 'item')
         for pusher in pushers:
+            sendbird = init_message()
             try:
-                sendbird = init_message()
                 sendbird['dedup_id'] = pusher['id']
                 sendbird['user_id'] = pusher['sender_id']
                 sendbird['ts'] = int(
@@ -137,19 +142,19 @@ def message_pusher_to_sendbird():
                     sendbird['message'] = parts[0]['payload']['content']
                 else:
                     sendbird['type'] = 'FILE'
-                    sendbird['file_data'] = {}
+                    sendbird['data'] = {}
                     for part in parts:
                         if part['part_type'] == 'inline':
-                            sendbird['file_data']['message'] = part['payload']['content']
+                            sendbird['data']['message'] = part['payload']['content']
                         if part['part_type'] == 'url':
-                            sendbird['file_data']['type'] = part['payload']['type']
-                            sendbird['file_data']['url'] = part['payload']['url']
+                            sendbird['data']['type'] = part['payload']['type']
+                            sendbird['data']['url'] = part['payload']['url']
                         if part['part_type'] == 'attachment':
                             sendbird['file_type'] = part['payload']['type']
                             sendbird['file_name'] = part['payload']['name']
                             sendbird['file_size'] = part['payload']['size']
                             sendbird['url'] = part['payload']['download_url']
-                            sendbird['file_data']['custom_data'] = part['payload']['custom_data']
+                            sendbird['data']['custom_data'] = part['payload']['custom_data']
                 channels[pusher['room_id']]['messages'].append(sendbird)
             except KeyError as ke:
                 print('{0}\n{1}'.format(pusher, ke))
