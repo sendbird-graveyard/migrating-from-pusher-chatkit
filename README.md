@@ -1,28 +1,29 @@
-# Migrating to SendBird from Pusher Chatkit
+# Migrating to Sendbird from Pusher Chatkit
 
-With SendBird, we make it easy to quickly perform a bulk migration of your user, channel and message chat data from Pusher’s Chatkit. Pusher is retiring their Chatkit product on April 23, 2020, but the SendBird team is ready to help you to migrate quickly! Tell us more about your chat migration [by filling out this form here](https://get.sendbird.com/pusher-migration.html)!
+With Sendbird, we make it easy to quickly perform a bulk migration of your user, channel and message chat data from Pusher’s Chatkit. Pusher is retiring their Chatkit product on April 23, 2020, but the SendBird team is ready to help you to migrate quickly! Tell us more about your chat migration [by filling out this form here](https://get.sendbird.com/pusher-migration.html)!
 
-Develop quickly with SendBird's UIKit, our development kit with an user interface that enables an easy and fast integration of standard chat features into new or existing client apps. From the overall theme to individual styles such as colors and fonts, components can be fully customized to create an in-app chat experience unique to your brand identity.
-Build in minutes with the SendBird UIKit for [iOS](https://docs.sendbird.com/ios/ui_kit_getting_started), [Android](https://docs.sendbird.com/android/ui_kit_getting_started), or [JavaScript](https://docs.sendbird.com/javascript/ui_kit_getting_started).
+Develop quickly with Sendbird's UIKit, our development kit with an user interface that enables an easy and fast integration of standard chat features into new or existing client apps. From the overall theme to individual styles such as colors and fonts, components can be fully customized to create an in-app chat experience unique to your brand identity.
+Build in minutes with the Sendbird UIKit for [iOS](https://docs.sendbird.com/ios/ui_kit_getting_started), [Android](https://docs.sendbird.com/android/ui_kit_getting_started), or [JavaScript](https://docs.sendbird.com/javascript/ui_kit_getting_started).
 
 ## Migration Steps
 
 ### 1. Export your data from Pusher
 
 - Export your data from Pusher. This data should consist of users, channels and messages.
-- [Sign up for SendBird](https://dashboard.sendbird.com/auth/signup) and create your SendBird applications.
-  We recommend creating two applications: one test/development application and one production application. SendBird can perform a dry run of your migration data into your test/development application prior to migration into your production application so you can verify the data import. When choosing a server region for your applications, select the region that is the closest to your end-users.
-- Share your data import with SendBird. To get started, [fill out this form here](https://get.sendbird.com/pusher-migration.html).
+- [Sign up for Sendbird](https://dashboard.sendbird.com/auth/signup) and create your Sendbird applications.
+  We recommend creating two applications: one test/development application and one production application. Sendbird can perform a dry run of your migration data into your test/development application prior to migration into your production application so you can verify the data import. When choosing a server region for your applications, select the region that is the closest to your end-users.
+- Share your intent to migrate to Sendbird. [Fill out this form here](https://get.sendbird.com/pusher-migration.html).
 
-### 2. Convert Pusher to SendBird
+### 2. Convert Pusher to Sendbird
 
-You can refer to [Pusher data format](https://github.com/sendbird/migrating-from-pusher-chatkit/example-chatkit-data-export) and [SendBird data format](https://github.com/sendbird/example-sendbird-data-json) then convert Pusher to SendBird. After converting it, you can contact us at support@sendbird.com then we will give you SFTP account or AWS S3 info, validate your data and migrate it for you.
+Please refer to [Pusher data format](https://github.com/sendbird/migrating-from-pusher-chatkit/tree/master/example-chatkit-data-export) and [Sendbird data format](https://github.com/sendbird/migrating-from-pusher-chatkit/tree/master/example-sendbird-data-json) then convert your Pusher data to the Sendbird-readable data format. After converting it, contact us at support@sendbird.com then we will give you SFTP account or AWS S3 info, validate your data and migrate it for you.
 
 ```bash
 # (need Python version 3.x)
 $ git clone https://github.com/sendbird/migrating-from-pusher-chatkit
-$ pip install -r requirements.txt
-$ python pusher_to_sendbird.py
+$ cd migrating-from-pusher-chatkit
+$ pip3 install -r requirements.txt
+$ python3 pusher_to_sendbird.py
 ```
 
 - Test the conversion script with the sample pusher files. (`_input` directory)
