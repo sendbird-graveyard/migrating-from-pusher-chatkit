@@ -53,7 +53,7 @@ def user_pusher_to_sendbird():
                 sendbird['metadata'] = pusher['custom_data']
             # TODO: if you have users' profile images, you can save the name as UUID.
             # if 'profile_file' in pusher:
-            #   sendbird['profile_file'] = `{UUID}.jpg`
+            #   sendbird['profile_file'] = `{UUID}.{ext}` - you can use uuid.uuid4()
             # No pusher['created_at'] and pusher['updated_at']
             users.append(sendbird)
             if (i % USERS_PER_FILE == 0):
@@ -151,6 +151,7 @@ def message_pusher_to_sendbird():
                             sendbird['data']['url'] = part['payload']['url']
                         if part['part_type'] == 'attachment':
                             sendbird['file_type'] = part['payload']['type']
+                            # after downloading using pusher API, you have to change the file_name to `{UUID}.{ext}`.
                             sendbird['file_name'] = part['payload']['name']
                             sendbird['file_size'] = part['payload']['size']
                             sendbird['url'] = part['payload']['download_url']
